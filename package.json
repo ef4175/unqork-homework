@@ -1,0 +1,53 @@
+{
+  "name": "unqork-api-test-pcp",
+  "version": "1.0.0",
+  "description": "Unqork's API coding interview challenge.",
+  "main": "index.js",
+  "scripts": {
+    "start": "node -r dotenv/config index.js",
+    "lint": "eslint 'app/**/*.js'",
+    "pretest": "yarn run lint",
+    "test": "jest app",
+    "watch": "yarn test -- --watch --coverage",
+    "submit": "jest app --coverage --silent && bestzip submission.zip package.json app/* coverage/*",
+    "check": "jest solution"
+  },
+  "repository": {},
+  "author": "Jason Cust <jason.cust@unqork.com>, Ryan Mahaffey <ryan.mahaffey@unqork.com>",
+  "license": "ISC",
+  "bugs": {},
+  "homepage": "",
+  "devDependencies": {
+    "@shelf/jest-mongodb": "^1.2.1",
+    "bestzip": "^2.1.6",
+    "dotenv": "^8.2.0",
+    "eslint": "^7.21.0",
+    "eslint-config-airbnb-base": "^14.2.0",
+    "eslint-plugin-import": "^2.22.0",
+    "eslint-plugin-jest": "^23.20.0",
+    "jest": "^26.6.3",
+    "supertest": "^4.0.2"
+  },
+  "dependencies": {
+    "@aws-sdk/client-s3": "^3.8.0",
+    "express": "^4.17.1",
+    "mongoose": "^5.9.27",
+    "morgan": "^1.10.0",
+    "uuid": "^8.3.0"
+  },
+  "jest": {
+    "testEnvironment": "node",
+    "verbose": true,
+    "preset": "@shelf/jest-mongodb"
+  },
+  "config": {
+    "mongodbMemoryServer": {
+      "instance": {},
+      "binary": {
+        "version": "4.0.3",
+        "skipMD5": true
+      },
+      "autoStart": false
+    }
+  }
+}
